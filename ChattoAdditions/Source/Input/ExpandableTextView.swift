@@ -34,6 +34,8 @@ open class ExpandableTextView: UITextView {
     private let placeholder: UITextView = UITextView()
     public weak var placeholderDelegate: ExpandableTextViewPlaceholderDelegate?
 
+    public var standardEditActionsInterceptor: UIResponder?
+
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
@@ -136,6 +138,26 @@ open class ExpandableTextView: UITextView {
         self.isScrollEnabled = false
         self.isScrollEnabled = true
     }
+
+    // MARK: - UIResponder
+
+    open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if let responder = self.standardEditActionsInterceptor, responder.canPerformAction(action, withSender: sender) {
+            return true
+        } else {
+            return super.canPerformAction(action, withSender: sender)
+        }
+    }
+
+    open override func perform(_ aSelector: Selector!, with object: Any!) -> Unmanaged<AnyObject>! {
+        if let responder = self.standardEditActionsInterceptor, responder.canPerformAction(aSelector, withSender: object) {
+            return responder.perform(aSelector, with: object)
+        } else {
+            return super.perform(aSelector, with: object)
+        }
+    }
+
+    // MARK: - Private methods
 
     private func scrollToCaret() {
         if let textRange = self.selectedTextRange {
