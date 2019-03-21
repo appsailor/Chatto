@@ -39,6 +39,11 @@ public protocol ChatInputBarDelegate: class {
 @objc
 open class ChatInputBar: ReusableXibView {
 
+    public var standardEditActionsInterceptor: UIResponder? {
+        get { return self.textView.standardEditActionsInterceptor }
+        set { self.textView.standardEditActionsInterceptor = newValue }
+    }
+
     public weak var delegate: ChatInputBarDelegate?
     weak var presenter: ChatInputBarPresenter?
 
