@@ -187,6 +187,8 @@ public final class LiveCameraCellPresenter {
             return false
         case .authorized:
             return true
+        @unknown default:
+            return false
         }
     }
 

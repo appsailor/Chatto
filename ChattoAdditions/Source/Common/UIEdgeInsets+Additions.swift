@@ -25,11 +25,11 @@
 import CoreGraphics
 
 public extension UIEdgeInsets {
-    public var bma_horziontalInset: CGFloat {
+    var bma_horziontalInset: CGFloat {
         return self.left + self.right
     }
 
-    public var bma_verticalInset: CGFloat {
+    var bma_verticalInset: CGFloat {
         return self.top + self.bottom
     }
 }
