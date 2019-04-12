@@ -1,10 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "ChattoAdditions"
-  s.version      = "3.4.0"
+  s.version      = "3.4.1"
   s.summary      = "UI componentes for Chatto"
   s.description  = <<-DESC
                    Text and photo bubbles
                    Input bar for text and photo messages
+                   Attributed text bubbles
                    DESC
   s.homepage     = "https://github.com/badoo/Chatto"
   s.license      = { :type => "MIT"}
