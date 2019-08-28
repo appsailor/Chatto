@@ -56,6 +56,8 @@ open class AttributedTextMessagePresenter<ViewModelBuilderT, InteractionHandlerT
 
     let layoutCache: NSCache<AnyObject, AnyObject>
     let textCellStyle: AttributedTextMessageCollectionViewCellStyleProtocol
+    
+    var isItemUpdateSupported: Bool = false
 
     public final override class func registerCells(_ collectionView: UICollectionView) {
         collectionView.register(AttributedTextMessageCollectionViewCell.self, forCellWithReuseIdentifier: "attr-text-message-incoming")
