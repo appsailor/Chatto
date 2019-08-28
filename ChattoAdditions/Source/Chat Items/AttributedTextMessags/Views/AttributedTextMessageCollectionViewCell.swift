@@ -24,7 +24,6 @@
 
 import UIKit
 import Chatto
-import ChattoAdditions
 
 public typealias AttributedTextMessageCollectionViewCellStyleProtocol = AttributedTextBubbleViewStyleProtocol
 

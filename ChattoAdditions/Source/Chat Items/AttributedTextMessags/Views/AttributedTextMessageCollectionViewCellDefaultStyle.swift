@@ -24,7 +24,6 @@
 
 import UIKit
 import Chatto
-import ChattoAdditions
 
 open class AttributedTextMessageCollectionViewCellDefaultStyle: AttributedTextMessageCollectionViewCellStyleProtocol {
     typealias Class = AttributedTextMessageCollectionViewCellDefaultStyle

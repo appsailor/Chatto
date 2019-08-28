@@ -88,6 +88,7 @@ public final class TextBubbleView: UIView, MaximumLayoutWidthSpecificable, Backg
     private lazy var bubbleImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.addSubview(self.borderImageView)
+        imageView.accessibilityIdentifier = "chatto.message.text.image.bubble"
         return imageView
     }()
 
@@ -284,9 +285,15 @@ private final class ChatMessageTextView: UITextView {
             super.gestureRecognizers = newValue
         }
         get {
-            return super.gestureRecognizers?.filter({ (gestureRecognizer) -> Bool in
-                return type(of: gestureRecognizer) == UILongPressGestureRecognizer.self && gestureRecognizer.delaysTouchesEnded
-            })
+            return super.gestureRecognizers?.filter { gestureRecognizer in
+                if type(of: gestureRecognizer) == UILongPressGestureRecognizer.self, gestureRecognizer.delaysTouchesEnded {
+                    return true
+                }
+                if #available(iOS 11, *), gestureRecognizer.name == "UITextInteractionNameLinkTap" {
+                    return true
+                }
+                return false
+            }
         }
     }
 

@@ -25,7 +25,6 @@
 import Foundation
 
 import Chatto
-import ChattoAdditions
 
 public protocol AttributedTextMessageViewModelProtocol: DecoratedMessageViewModelProtocol {
     var text: NSAttributedString { get }

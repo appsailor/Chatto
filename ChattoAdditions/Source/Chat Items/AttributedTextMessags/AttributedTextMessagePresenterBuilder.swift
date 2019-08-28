@@ -24,7 +24,6 @@
 
 import Foundation
 import Chatto
-import ChattoAdditions
 
 open class AttributedTextMessagePresenterBuilder<ViewModelBuilderT, InteractionHandlerT>
 : ChatItemPresenterBuilderProtocol where

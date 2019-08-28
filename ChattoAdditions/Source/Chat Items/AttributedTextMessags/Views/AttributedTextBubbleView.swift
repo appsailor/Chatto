@@ -24,7 +24,6 @@
 
 import UIKit
 import Chatto
-import ChattoAdditions
 
 public protocol AttributedTextBubbleViewStyleProtocol {
     func bubbleImage(viewModel: AttributedTextMessageViewModelProtocol, isSelected: Bool) -> UIImage
